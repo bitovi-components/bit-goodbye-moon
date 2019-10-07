@@ -1,9 +1,11 @@
-import {Component} from "//unpkg.com/can@5/core.mjs";
+import { StacheElement } from "//unpkg.com/can@6/core.mjs";
 
-export default Component.extend({
-    tag: "goodbye-moon",
-    view: `<h1>{{greeting}} moon.</h1>`,
-    ViewModel: {
-        greeting: {default: "Goodbye"}
-    }
-});
+export default class GoodbyeMoon extends StacheElement {
+  static view = `<h1>{{ this.greeting }} moon.</h1>`;
+
+  static props = {
+    greeting: { default: "Goodbye" }
+  };
+}
+
+customElements.define("goodbye-moon", GoodbyeMoon);
